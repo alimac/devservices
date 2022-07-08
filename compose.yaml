@@ -1,0 +1,19 @@
+services:
+  mysql:
+    image: mysql:8
+    environment:
+      - MYSQL_ROOT_PASSWORD=honored
+    ports:
+      - 3306:3306
+    volumes:
+      - /tmp/devservices/mysql:/var/lib/mysql
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: honored
+      POSTGRES_PASSWORD: honored
+      POSTGRES_DB: honored
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/postgres/:/var/lib/postgresql/data/
