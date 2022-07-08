@@ -6,7 +6,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - /tmp/devservices/mysql:/var/lib/mysql
+      - ./data/mysql:/var/lib/mysql
   postgres:
     image: postgres:14
     environment:
