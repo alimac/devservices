@@ -41,3 +41,18 @@ services:
       - "5601"
     environment:
       OPENSEARCH_HOSTS: '["https://opensearch-node1:9200"]'
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - 80:80
+    restart: always
+  dynamodb:
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "4566:8000"
+    volumes:
+      - "./data/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
